@@ -32,12 +32,15 @@ const Article = ({ article, categories }) => {
       </div>
       <div className="uk-section">
         <div className="uk-container uk-container-small">
-          <ReactMarkdown children={article.attributes.content} />
+          <ReactMarkdown>{article.attributes.content}</ReactMarkdown>
+
           <hr className="uk-divider-small" />
           <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <div>
               {article.attributes.author.data.attributes.picture && (
                 <Image
+                  height="60"
+                  width="60"
                   src={getStrapiMedia(
                     article.attributes.author.data.attributes.picture
                   )}
@@ -48,7 +51,6 @@ const Article = ({ article, categories }) => {
                   style={{
                     position: "static",
                     borderRadius: "20%",
-                    height: 60,
                   }}
                 />
               )}
